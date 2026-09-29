@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Healthcare Patient Portal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #333;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #42a5f5, #1565c0);
+            color: white;
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #2e7d32;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 60px 30px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #1565c0;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Healthcare Patient Portal</h1>
+
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#security">Security</a>
+    </nav>
+</header>
+
+<div class="hero">
+
+    <h2>Secure Patient Portal</h2>
+
+    <p>
+        DevSecOps Healthcare Demonstration
+    </p>
+
+    <p>
+        Jenkins + Docker + Kubernetes + AWS
+    </p>
+
+    <div class="status">
+        Secure & Operational
+    </div>
+
+</div>
+
+<section id="services">
+
+    <h2 style="text-align:center; color:#1565c0;">
+        Healthcare Services
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Appointments</h3>
+            <p>
+                Manage patient appointments securely.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Medical Records</h3>
+            <p>
+                Protected access to patient information.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Secure Access</h3>
+            <p>
+                Security controls protect sensitive information.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="security">
+
+    <h2 style="color:#1565c0;">
+        DevSecOps Security
+    </h2>
+
+    <p style="margin-top:20px; line-height:1.7;">
+        This application demonstrates security integrated throughout
+        the software delivery lifecycle using secret scanning,
+        vulnerability scanning, secure containers, Kubernetes security
+        controls and AWS monitoring.
+    </p>
+
+</section>
+
+<footer>
+
+    <p>
+        © 2026 Healthcare DevSecOps Lab
+    </p>
+
+</footer>
+
+</body>
+</html>
