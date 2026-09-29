@@ -96,25 +96,14 @@ pipeline {
 
         stage('Deploy Securely') {
 
-            steps {
+    steps {
 
-                sh '''
-                    sed -i \
-                    's#rohannn004/patient-portal:latest#$IMAGE:${BUILD_NUMBER}#' \
-                    k8s/secure-deployment.yaml
-                '''
+        sh "sed -i 's#rohannn004/patient-portal:latest#${IMAGE}:${BUILD_NUMBER}#' k8s/secure-deployment.yaml"
 
-                sh '''
-                    kubectl apply \
-                    -f k8s/secure-deployment.yaml
-                '''
+        sh "kubectl apply -f k8s/secure-deployment.yaml"
 
-                sh '''
-                    kubectl rollout status \
-                    deployment/patient-portal \
-                    --timeout=120s
-                '''
-            }
-        }
+        sh "kubectl rollout status deployment/patient-portal --timeout=120s"
+    }
+}
     }
 }
