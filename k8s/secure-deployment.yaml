@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-portal
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: patient-portal
+
+  template:
+    metadata:
+      labels:
+        app: patient-portal
+
+    spec:
+
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 101
+
+      containers:
+
+        - name: portal
+
+          image: rohannn004/patient-portal:latest
+
+          ports:
+            - containerPort: 8080
+
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+
+            capabilities:
+              drop:
+                - ALL
+
+          resources:
+            limits:
+              cpu: "250m"
+              memory: "128Mi"
+
+          volumeMounts:
+
+            - name: tmp
+              mountPath: /tmp
+
+            - name: cache
+              mountPath: /var/cache/nginx
+
+            - name: run
+              mountPath: /var/run
+
+      volumes:
+
+        - name: tmp
+          emptyDir: {}
+
+        - name: cache
+          emptyDir: {}
+
+        - name: run
+          emptyDir: {}
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+
+metadata:
+  name: default-deny-ingress
+
+spec:
+
+  podSelector: {}
+
+  policyTypes:
+    - Ingress
